@@ -13,6 +13,7 @@ function install {
   mkdir -p ~/.vim/_backup ~/.vim/_tmp
   ln -s "`pwd`/vimrc" ~/.vimrc
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  git clone https://github.com/flazz/vim-colorschemes.git ~/.vim
   vim +PluginInstall +qall
 }
 
