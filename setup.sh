@@ -10,10 +10,10 @@ function backup {
 
 function install {
   #vim
-  mkdir -p ~/.vim/_backup ~/.vim/_tmp
+  mkdir -p ~/.vim/_backup ~/.vim/_tmp ~/.vim/bundle ~/.vim/colors
   ln -s "`pwd`/vimrc" ~/.vimrc
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-  git clone https://github.com/flazz/vim-colorschemes.git ~/.vim
+  wget -O ~/.vim/colors/jellybeans.vim https://raw.githubusercontent.com/flazz/vim-colorschemes/master/colors/jellybeans.vim
   vim +PluginInstall +qall
 }
 
