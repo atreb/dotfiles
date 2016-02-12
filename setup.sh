@@ -4,8 +4,8 @@ function backup {
   BACKUP_DIR=~/BACKUP/`date +%s`
   mkdir -p $BACKUP_DIR
   #vim backup
-  [[ -d ~/.vim ]] &&  mv ~/.vim $BACKUP_DIR
-  [[ -e ~/.vimrc ]] && mv ~/.vimrc $BACKUP_DIR
+  [[ -d ~/.vim ]] &&  mv ~/.vim $BACKUP_DIR/vim
+  [[ -e ~/.vimrc ]] && mv ~/.vimrc $BACKUP_DIR/vimrc
 }
 
 function install {
