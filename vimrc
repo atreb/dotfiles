@@ -86,5 +86,6 @@ nnoremap <leader>u :GundoToggle<cr>
 nnoremap <left> :bprev<cr>
 nnoremap <right> :bnext<cr>
 nnoremap <up> :buffers<cr>:buffer<space>
-nnoremap <down> <C-^>
+" nnoremap <down> <C-^>
+nnoremap <down> :Explore<cr>
 
