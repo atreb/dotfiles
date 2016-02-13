@@ -2,7 +2,7 @@
 
 #-----------------------------------------------------
 # Following installations is assumed:
-# - wget vim git
+# - wget vim git. In osx use brew to install on arch use pacman
 # Following files should exist:
 # - /Users/atreb/DEV/certificates/decoded.crt
 #-----------------------------------------------------
@@ -15,17 +15,20 @@ function backup {
   #vim backup
   [[ -d ~/.vim ]] &&  mv ~/.vim $BACKUP_DIR/vim
   [[ -e ~/.vimrc ]] && mv ~/.vimrc $BACKUP_DIR/vimrc
+  #eslint backup
+  [[ -e ~/.eslint* ]] && mv ~/.eslint* $BACKUP
 }
 
 function install {
   #git
   ln -s "`pwd`/gitconfig" ~/.gitconfig
   #vim
-  mkdir -p ~/.vim/_backup ~/.vim/_tmp ~/.vim/bundle ~/.vim/colors
+  mkdir -p ~/.vim/_backup ~/.vim/_tmp ~/.vim/bundle
   ln -s "`pwd`/vimrc" ~/.vimrc
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-  wget -O ~/.vim/colors/jellybeans.vim https://raw.githubusercontent.com/flazz/vim-colorschemes/master/colors/jellybeans.vim
   vim +PluginInstall +qall
+  #eslint
+  ln -s "`pwd`/eslintrc" ~/.eslintrc.json
 }
 
 backup
