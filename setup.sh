@@ -3,6 +3,7 @@
 #-----------------------------------------------------
 # Following installations is assumed:
 # - wget vim git. In osx use brew to install on arch use pacman
+# - binary package of nodejs installed at ~/DEV so that no need to use sudo for global install
 # Following files should exist:
 # - /Users/atreb/DEV/certificates/decoded.crt
 #-----------------------------------------------------
@@ -10,6 +11,8 @@
 function backup {
   BACKUP_DIR=~/BACKUP/`date +%s`
   mkdir -p $BACKUP_DIR
+  #bash_profile
+  [[ -e ~/.bash_profile ]] && mv ~/.bash_profile $BACKUP/bash_profile
   #git backup
   [[ -e ~/.gitconfig ]] && mv ~/.gitconfig $BACKUP_DIR/gitconfig
   #vim backup
@@ -20,6 +23,8 @@ function backup {
 }
 
 function install {
+  #bash_profile
+  ln -s "`pwd`/bash_profile" ~/.bash_profile
   #git
   ln -s "`pwd`/gitconfig" ~/.gitconfig
   #vim
