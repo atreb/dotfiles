@@ -17,11 +17,15 @@ Plugin 'bling/vim-airline'          "lean status bar
 Plugin 'flazz/vim-colorschemes'     "downloads jellybean color scheme along with few others
 Plugin 'easymotion/vim-easymotion'  "moving through vim text with speed
 Plugin 'sjl/gundo.vim'              "graphical undo tree tranversal plugin
-Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'         "fast fuzzy file browsing
 Plugin 'airblade/vim-gitgutter'     "visual git diff
 Plugin 'tomtom/tcomment_vim'        "easy commenting
 Plugin 'scrooloose/syntastic'       "syntax checking
-Plugin 'othree/html5.vim'               "HTML5 + inline SVG omnicomplete function, indent and syntax for Vim
+Plugin 'othree/html5.vim'           "HTML5 + inline SVG omnicomplete function, indent and syntax for Vim
+Plugin 'MarcWeber/vim-addon-mw-utils' "Required for snipMate
+Plugin 'tomtom/tlib_vim'              "Required for snipMate
+Plugin 'garbas/vim-snipmate'        "vim script to provide support for snippets for faster coding
+Plugin 'honza/vim-snippets'         "vim-snipmate default snippets
 call vundle#end()
 filetype plugin indent on       "lets vim identify filetypes and load plugins for them. Also sets indenting intelligence based on syntax rules for the file type
 
