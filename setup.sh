@@ -15,6 +15,8 @@ function backup {
   [[ -e ~/.bash_profile ]] && mv ~/.bash_profile $BACKUP/bash_profile
   #git backup
   [[ -e ~/.gitconfig ]] && mv ~/.gitconfig $BACKUP_DIR/gitconfig
+  #npmrc backup
+  [[ -e ~/.npmrc ]] && mv ~/.npmrc $BACKUP_DIR/npmrc
   #vim backup
   [[ -d ~/.vim ]] &&  mv ~/.vim $BACKUP_DIR/vim
   [[ -e ~/.vimrc ]] && mv ~/.vimrc $BACKUP_DIR/vimrc
@@ -27,6 +29,8 @@ function install {
   ln -s "`pwd`/bash_profile" ~/.bash_profile
   #git
   ln -s "`pwd`/gitconfig" ~/.gitconfig
+  #npmrc
+  ln -s "`pwd`/npmrc" ~/.npmrc
   #vim
   mkdir -p ~/.vim/_backup ~/.vim/_tmp ~/.vim/bundle
   ln -s "`pwd`/vimrc" ~/.vimrc
