@@ -79,6 +79,7 @@ let g:syntastic_check_on_wq = 0
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:30'         "instructs ctrlp to order search results top to bottom with more results than default
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'       "instructs ctrlp to use ag for lightning fast results
 let g:ctrlp_use_caching = 0                       "ag is fast enough that ctrlp does not need cache
+let g:ctrlp_working_path_mode = 0                 "let ctrp use current directory
 
 "shortcut for removing search highlight
 nnoremap <leader><space> :nohlsearch<cr>
