@@ -6,7 +6,7 @@ installations on osx
 - install nodejs at ~/DEV/nodejs
 - Then
 ```
-brew install wget git the_silver_searcher vim
+brew install wget git the_silver_searcher vim siege ctags
 brew install mongodb --with-openssl
 mkdir -p ~/DEV/mongodb-data/logs ~/DEV/mongodb-data/db
 npm install -g eslint babel-eslint eslint-plugin-react jsonlint n supervisor

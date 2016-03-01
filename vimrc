@@ -26,6 +26,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils' "Required for snipMate
 Plugin 'tomtom/tlib_vim'              "Required for snipMate
 Plugin 'garbas/vim-snipmate'        "vim script to provide support for snippets for faster coding
 Plugin 'honza/vim-snippets'         "vim-snipmate default snippets
+Plugin 'majutsushi/tagbar'          "displays tags
 call vundle#end()
 filetype plugin indent on       "lets vim identify filetypes and load plugins for them. Also sets indenting intelligence based on syntax rules for the file type
 
