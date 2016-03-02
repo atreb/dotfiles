@@ -33,17 +33,19 @@ filetype plugin indent on       "lets vim identify filetypes and load plugins fo
 syntax enable                   "enables syntax highlighting
 colorscheme jellybeans          "sets jellybeans colorscheme from the flaxx/vim-colorschemes
 let mapleader = ","             "maps leader to ,
+set lazyredraw                  "Don't redraw while executing macros (good performance config)
 set laststatus=2                "for airline plugin to see the status at all times instead of the default in splits
-set hidden
+set hidden                      "opening a new file when the current buffer has unsaved changes causes files to be hidden instead of closed
 set number                      "show line numbers
 set wrap                        "enables visual line wrapping
 set textwidth=0 wrapmargin=0    "turns off physical line wrapping (ie: automatic insertion of newlines)
-set cursorline                  "highlights line at cursorA
+set cursorline                  "highlights line at cursor
 set wildmenu                    "visual autocomplete for command menu using tab, use arrow keys to nagivate
 set showmatch                   "highlight matching parenthesis like characters [{()}]
 set ruler                       "show line and coumn number in statusline
 set modifiable                  "allows plugins like gundo to modify buffer
 set encoding=utf-8              "set default encoding to UTF-8
+set ffs=unix,dos,mac            "use unitx as the standard file type
 set tabstop=2                   "tab is 2 spaces
 set shiftwidth=2                "indent with >> or >> is 2 spaces
 set expandtab                   "use spaces instead of tab
