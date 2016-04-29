@@ -2,7 +2,7 @@
 
 #-----------------------------------------------------
 # Following installations is assumed:
-# - wget vim git. In osx use brew to install on arch use pacman
+# - wget vim git tmux. In osx use brew to install on arch use pacman
 # - binary package of nodejs installed at ~/DEV so that no need to use sudo for global install
 # Following files should exist:
 # - /Users/atreb/DEV/certificates/decoded.crt
@@ -22,6 +22,8 @@ function backup {
   [[ -e ~/.vimrc ]] && mv ~/.vimrc $BACKUP_DIR/vimrc
   #eslint backup
   [[ -e ~/.eslint* ]] && mv ~/.eslint* $BACKUP
+  #tmux backup
+  [[ -e ~/.tmux.conf ]] && mv ~/.tmux.conf $BAKUP
 }
 
 function install {
@@ -38,6 +40,8 @@ function install {
   vim +PluginInstall +qall
   #eslint
   ln -s "`pwd`/eslintrc" ~/.eslintrc.json
+  #tmux
+  ln -s "`pwd`/tmux.conf" ~/.tmux.conf
 }
 
 backup
