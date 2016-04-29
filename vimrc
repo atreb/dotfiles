@@ -13,11 +13,13 @@ filetype off                    "required for vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'       "let vundlue manage vundle
-Plugin 'bling/vim-airline'          "lean status bar
+Plugin 'vim-airline/vim-airline'    "lean status bar
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'flazz/vim-colorschemes'     "downloads jellybean color scheme along with few others
 Plugin 'easymotion/vim-easymotion'  "moving through vim text with speed
 Plugin 'sjl/gundo.vim'              "graphical undo tree tranversal plugin
 Plugin 'ctrlpvim/ctrlp.vim'         "fast fuzzy file browsing
+Plugin 'rking/ag.vim'               "fast fuzzy in file searching using ag
 Plugin 'airblade/vim-gitgutter'     "visual git diff
 Plugin 'tomtom/tcomment_vim'        "easy commenting
 Plugin 'scrooloose/syntastic'       "syntax checking
@@ -27,6 +29,7 @@ Plugin 'tomtom/tlib_vim'              "Required for snipMate
 Plugin 'garbas/vim-snipmate'        "vim script to provide support for snippets for faster coding
 Plugin 'honza/vim-snippets'         "vim-snipmate default snippets
 Plugin 'majutsushi/tagbar'          "displays tags
+Plugin 'jiangmiao/auto-pairs'       "insert/delete brackers, parens, quotes in pair
 call vundle#end()
 filetype plugin indent on       "lets vim identify filetypes and load plugins for them. Also sets indenting intelligence based on syntax rules for the file type
 
@@ -72,6 +75,24 @@ set statusline+=%*
 "plugin variables
 let g:netrw_liststyle=3                           "nerdtree style for netrw
 let g:netrw_preview=1                             "preview window shown in vertical split instead of horiz if value is 0. Default is 0
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.notexists = '∄'
+let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_theme='powerlineish'
 let g:airline#extensions#tabline#enabled = 1      "enables display of buffers when only one tab is open
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:gundo_preview_bottom=1    "sets the preview pane for gundo below current window instead of below graph
