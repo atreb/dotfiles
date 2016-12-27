@@ -1,5 +1,5 @@
 [url "https://"]
-  insteadOf = git://
+	insteadOf = git://
 [user]
   name = atreb
   email = bhupendra.atre@dowjones.com
@@ -10,6 +10,6 @@
 [http]
   sslcainfo = /Users/atreb/DEV/certificates/decoded.crt
 [merge]
-  tool = vimdiff
+	tool = meld
 [diff]
   tool = vimdiff

@@ -5,7 +5,8 @@
 ; read `npm help config` for help on the various options
 ;;;;
 
-registry=http://registry.npm.wsjfdev.dowjones.net/
+;registry=http://registry.npm.wsjfdev.dowjones.net/
+registry=http://production.npmserver.virginia.onservo.com/
 
 ;;;;
 ; all options with default values
