@@ -3,7 +3,7 @@
 " git clone https://github.com/VundleVim/Vundle.vim.igt ~/.vim/bundle/Vundle.vim
 " mkdir ~/.vim/_backup
 " mkdir ~/.vim/_tmp
-" brew install the_silver_surfer or pacman -S the_silver_surfer
+" brew install the_silver_searcher or pacman -S the_silver_searcher
 " Below are prerequisites for syntastic checkers
 "   npm install -g eslint babel-eslint eslint-plugin-react jsonlint
 "-------------------------------------------------------------------------------
@@ -19,17 +19,12 @@ Plugin 'flazz/vim-colorschemes'     "downloads jellybean color scheme along with
 Plugin 'easymotion/vim-easymotion'  "moving through vim text with speed
 Plugin 'sjl/gundo.vim'              "graphical undo tree tranversal plugin
 Plugin 'ctrlpvim/ctrlp.vim'         "fast fuzzy file browsing
-Plugin 'rking/ag.vim'               "fast fuzzy in file searching using ag
 Plugin 'airblade/vim-gitgutter'     "visual git diff
 Plugin 'tomtom/tcomment_vim'        "easy commenting
-Plugin 'scrooloose/syntastic'       "syntax checking
-Plugin 'othree/html5.vim'           "HTML5 + inline SVG omnicomplete function, indent and syntax for Vim
-Plugin 'MarcWeber/vim-addon-mw-utils' "Required for snipMate
-Plugin 'tomtom/tlib_vim'              "Required for snipMate
-Plugin 'garbas/vim-snipmate'        "vim script to provide support for snippets for faster coding
-Plugin 'honza/vim-snippets'         "vim-snipmate default snippets
-Plugin 'majutsushi/tagbar'          "displays tags
-Plugin 'jiangmiao/auto-pairs'       "insert/delete brackers, parens, quotes in pair
+Plugin 'nathanaelkane/vim-indent-guides'  "provides visual indicators of the indent level of each line in a file
+Plugin 'sheerun/vim-polyglot'        "one plugin to rule all for syntax highlighting
+Plugin 'vim-syntastic/syntastic'     "syntax checking plugin with external checkers
+Plugin 'scrooloose/nerdtree'         "browse files
 call vundle#end()
 filetype plugin indent on       "lets vim identify filetypes and load plugins for them. Also sets indenting intelligence based on syntax rules for the file type
 
@@ -48,7 +43,7 @@ set showmatch                   "highlight matching parenthesis like characters 
 set ruler                       "show line and coumn number in statusline
 set modifiable                  "allows plugins like gundo to modify buffer
 set encoding=utf-8              "set default encoding to UTF-8
-set ffs=unix,dos,mac            "use unitx as the standard file type
+set ffs=unix,dos,mac            "use unitx as the stansard file type
 set tabstop=2                   "tab is 2 spaces
 set shiftwidth=2                "indent with >> or >> is 2 spaces
 set expandtab                   "use spaces instead of tab
@@ -71,10 +66,11 @@ set splitright                  "causes new vertical split window to be on right
 set statusline+=%#warningmsg#   "below 3 sets recommended for syntastic
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+set clipboard=unnamed           "allows copying from vim to os clipboard
 
 "plugin variables
-let g:netrw_liststyle=3                           "nerdtree style for netrw
-let g:netrw_preview=1                             "preview window shown in vertical split instead of horiz if value is 0. Default is 0
+"let g:netrw_liststyle=3                           "nerdtree style for netrw
+"let g:netrw_preview=1                             "preview window shown in vertical split instead of horiz if value is 0. Default is 0
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
@@ -105,6 +101,10 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'       "instructs ctrlp to 
 let g:ctrlp_use_caching = 0                       "ag is fast enough that ctrlp does not need cache
 let g:ctrlp_working_path_mode = 0                 "let ctrp use current directory
 
+let g:indent_guides_guide_size = 1                "enable single character wide subtle highlights for indents. used by vim-indent-guides
+let g:indent_guides_color_change_percent = 3
+let g:indent_guides_enable_on_vim_startup = 1
+
 "shortcut for removing search highlight
 nnoremap <leader><space> :nohlsearch<cr>
 "shortcut for easymotion bidirectional search
@@ -116,5 +116,6 @@ nnoremap <left> :bprev<cr>
 nnoremap <right> :bnext<cr>
 nnoremap <up> :buffers<cr>:buffer<space>
 " nnoremap <down> <C-^>
-nnoremap <down> :Explore<cr>
+"nnoremap <down> :Explore<cr>
+nnoremap <down> :NERDTree<cr>
 
