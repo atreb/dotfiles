@@ -62,9 +62,6 @@ set backupdir=~/.vim/_backup//  "where to put backup files. Double trailing / en
 set directory=~/.vim/_tmp//     "where to put swap files. No more annoying backup & swap files in working directory
 set splitbelow                  "cause new split window to be at bottom
 set splitright                  "causes new vertical split window to be on right
-set statusline+=%#warningmsg#   "below 3 sets recommended for syntastic
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 set clipboard=unnamed           "allows copying from vim to os clipboard
 
 "----------------
@@ -75,13 +72,6 @@ let g:netrw_liststyle = 3                             "nerdtree style for netrw
 let g:netrw_preview = 1                               "preview window shown in vertical split instead of horiz if value is 0. Default is 0
 
 let g:gundo_preview_bottom = 1                                "sets the preview pane for gundo below current window instead of below graph
-
-let g:syntastic_javascript_checkers = ['eslint']           "instructs syntastic to use eslint for javascript
-let g:syntastic_json_checkers = ['jsonlint']               "instructs syntastic to use eslint for json
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:30'  "instructs ctrlp to order search results top to bottom with more results than default
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'       "instructs ctrlp to use ag for lightning fast results
