@@ -15,7 +15,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'       "let vundlue manage vundle
 Plugin 'vim-airline/vim-airline'    "lean status bar
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'flazz/vim-colorschemes'     "downloads jellybean color scheme along with few others
+Plugin 'bling/vim-bufferline'
+Plugin 'nanotech/jellybeans.vim'     "jellybeans color scheme"
 Plugin 'easymotion/vim-easymotion'  "moving through vim text with speed
 Plugin 'sjl/gundo.vim'              "graphical undo tree tranversal plugin
 Plugin 'ctrlpvim/ctrlp.vim'         "fast fuzzy file browsing
@@ -23,8 +24,6 @@ Plugin 'airblade/vim-gitgutter'     "visual git diff
 Plugin 'tomtom/tcomment_vim'        "easy commenting
 Plugin 'nathanaelkane/vim-indent-guides'  "provides visual indicators of the indent level of each line in a file
 Plugin 'sheerun/vim-polyglot'        "one plugin to rule all for syntax highlighting
-Plugin 'vim-syntastic/syntastic'     "syntax checking plugin with external checkers
-Plugin 'scrooloose/nerdtree'         "browse files
 call vundle#end()
 filetype plugin indent on       "lets vim identify filetypes and load plugins for them. Also sets indenting intelligence based on syntax rules for the file type
 
@@ -68,54 +67,54 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 set clipboard=unnamed           "allows copying from vim to os clipboard
 
+"----------------
 "plugin variables
-"let g:netrw_liststyle=3                           "nerdtree style for netrw
-"let g:netrw_preview=1                             "preview window shown in vertical split instead of horiz if value is 0. Default is 0
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.notexists = '∄'
-let g:airline_symbols.whitespace = 'Ξ'
-let g:airline_theme='powerlineish'
-let g:airline#extensions#tabline#enabled = 1      "enables display of buffers when only one tab is open
-let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:gundo_preview_bottom=1    "sets the preview pane for gundo below current window instead of below graph
-let g:syntastic_javascript_checkers = ['eslint']  "instructs syntastic to use eslint for javascript
-let g:syntastic_json_checkers = ['jsonlint']      "instructs syntastic to use eslint for json
+"----------------
+let g:netrw_banner = 0                                "disable banner
+let g:netrw_liststyle = 3                             "nerdtree style for netrw
+let g:netrw_preview = 1                               "preview window shown in vertical split instead of horiz if value is 0. Default is 0
+
+let g:gundo_preview_bottom = 1                                "sets the preview pane for gundo below current window instead of below graph
+
+let g:syntastic_javascript_checkers = ['eslint']           "instructs syntastic to use eslint for javascript
+let g:syntastic_json_checkers = ['jsonlint']               "instructs syntastic to use eslint for json
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:30'         "instructs ctrlp to order search results top to bottom with more results than default
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'       "instructs ctrlp to use ag for lightning fast results
-let g:ctrlp_use_caching = 0                       "ag is fast enough that ctrlp does not need cache
-let g:ctrlp_working_path_mode = 0                 "let ctrp use current directory
 
-let g:indent_guides_guide_size = 1                "enable single character wide subtle highlights for indents. used by vim-indent-guides
+let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:30'  "instructs ctrlp to order search results top to bottom with more results than default
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'       "instructs ctrlp to use ag for lightning fast results
+let g:ctrlp_use_caching = 0                                 "ag is fast enough that ctrlp does not need cache
+let g:ctrlp_working_path_mode = 0                           "let ctrp use current directory
+
+let g:indent_guides_guide_size = 1                          "enable single character wide subtle highlights for indents. used by vim-indent-guides
 let g:indent_guides_color_change_percent = 3
 let g:indent_guides_enable_on_vim_startup = 1
 
+let g:airline_theme = 'bubblegum'
+
+let g:bufferline_echo = 0                                   "disable bufferline on command line, just show on statusline
+let g:bufferline_inactive_highlight = 'StatusLineNC'
+let g:bufferline_active_highlight = 'StatusLine'
+let g:bufferline_fname_mod = ':p:.'
+
+"-------------------------------------------------
+"shortcuts: avoid adding comments in the same line
+"-------------------------------------------------
 "shortcut for removing search highlight
 nnoremap <leader><space> :nohlsearch<cr>
+
 "shortcut for easymotion bidirectional search
 nmap s <Plug>(easymotion-s2)
+
 "shortcut to toggle gundo
 nnoremap <leader>u :GundoToggle<cr>
-"shortcuts for buffer management
-nnoremap <left> :bprev<cr>
-nnoremap <right> :bnext<cr>
-nnoremap <up> :buffers<cr>:buffer<space>
-" nnoremap <down> <C-^>
-"nnoremap <down> :Explore<cr>
-nnoremap <down> :NERDTree<cr>
 
+"shortcuts for buffer management
+nnoremap <left> :bp<cr>
+nnoremap <right> :bn<cr>
+nnoremap <up> :buffers<cr>:buffer<space>
+
+"shortcut for opening netrw explorer
+nnoremap <DOWN> :Explore<CR>
