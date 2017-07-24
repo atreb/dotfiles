@@ -4,7 +4,7 @@
 " mkdir ~/.vim/_backup
 " mkdir ~/.vim/_tmp
 " brew install the_silver_searcher or pacman -S the_silver_searcher
-" Below are prerequisites for syntastic checkers
+" Below are prerequisites for validator
 "   npm install -g eslint babel-eslint eslint-plugin-react jsonlint
 "-------------------------------------------------------------------------------
 
