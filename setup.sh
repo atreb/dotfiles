@@ -21,7 +21,7 @@ function backup {
   [[ -d ~/.vim ]] &&  mv ~/.vim $BACKUP_DIR/vim
   [[ -e ~/.vimrc ]] && mv ~/.vimrc $BACKUP_DIR/vimrc
   #eslint backup
-  [[ -e ~/.eslint* ]] && mv ~/.eslint* $BACKUP
+  [[ -e ~/.eslintrc.json]] && mv ~/.eslintrc.json $BACKUP
   #tmux backup
   [[ -e ~/.tmux.conf ]] && mv ~/.tmux.conf $BAKUP
 }
@@ -39,7 +39,7 @@ function install {
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
   vim +PluginInstall +qall
   #eslint
-  ln -s "`pwd`/eslintrc" ~/.eslintrc.json
+  ln -s "`pwd`/eslintrc.json" ~/.eslintrc.json
   #tmux
   ln -s "`pwd`/tmux.conf" ~/.tmux.conf
 }
